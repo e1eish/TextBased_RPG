@@ -62,13 +62,14 @@ public class Player extends Character {
         }
     }
 
-    public void gainExp(int amount) {
+    public void gainExp(Scanner scanner, int amount) {
         exp += amount;
         if (exp >= 50) {
             boolean isValid = false;
             int choice = 0;
             while (isValid == false) {
-                try (Scanner scanner = new Scanner(System.in)) {
+                //try (Scanner scanner = new Scanner(System.in)) {
+                try {
                     System.out.println("You have leveled up!\nWhich stat do you want to increase?");
                     System.out.println("1: Strength\n2: Intelligence");
 

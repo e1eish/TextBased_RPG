@@ -16,7 +16,7 @@ public class Battle {
         enemy.reduceHealth(damage);
         String attackMessage = String.format("%1$s attacks %2$s.", player.getName(), enemy.getName());
         System.out.println(attackMessage);
-        String damageMessage = String.format("%1$s dealt %2$d damage to %3$s.", player.getName(), damage, enemy.getName());
+        String damageMessage = String.format("%1$s dealt %2$d damage to %3$s.\n", player.getName(), damage, enemy.getName());
         System.out.println(damageMessage);
     }
 
@@ -25,7 +25,7 @@ public class Battle {
         player.reduceHealth(damage);
         String attackMessage = String.format("%1$s attacks %2$s.", enemy.getName(), player.getName());
         System.out.println(attackMessage);
-        String message = String.format("%1$s dealt %2$d damage to %3$s.", enemy.getName(), damage, player.getName());
+        String message = String.format("%1$s dealt %2$d damage to %3$s.\n", enemy.getName(), damage, player.getName());
         System.out.println(message);
     }
 
@@ -36,12 +36,13 @@ public class Battle {
         return false;
     }
 
-    public int getPlayerAction() {
+    public int getPlayerAction(Scanner in) {
         boolean isValid = false;
         int action = 0;
+        //Scanner in = new Scanner(System.in);
         while (isValid == false) {
             //try (Scanner scanner = new Scanner(System.in)) {
-                Scanner scanner = new Scanner(System.in);
+                //Scanner in = new Scanner(System.in);
                 System.out.println();
                 System.out.println("What will you do?");
                 System.out.println("1: Attack an enemy");
@@ -49,7 +50,8 @@ public class Battle {
                 System.out.println("3: Run (25%)");
                 System.out.println();
 
-                action = scanner.nextInt();
+                action = in.nextInt();
+                
                 if (action >= 1 && action <= 3) {
                     isValid = true;
                 } else {
@@ -81,13 +83,13 @@ public class Battle {
         System.out.println(enemyState);
     }
 
-    public boolean doBattle() {
+    public boolean doBattle(Scanner in) {
         boolean isPlayerTurn = true;
         boolean ranAway = false;
         while (isDead(player) == false && isDead(enemy) == false && ranAway == false) {
             displayState();
             if (isPlayerTurn) {    
-                int action = getPlayerAction();
+                int action = getPlayerAction(in);
                 if (action == 1) {
                     playerDamagesEnemy();
                 } else if (action == 2) {
@@ -106,7 +108,7 @@ public class Battle {
         if (isDead(enemy)) {
             String message = String.format("You defeated %s!", enemy.getName());
             System.out.println(message);
-            player.gainExp(experienceGain);
+            player.gainExp(in, experienceGain);
             player.heal(1000);
             return true;
         } else {
