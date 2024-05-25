@@ -55,4 +55,19 @@ abstract class Character {
     public Weapon getWeapon() {
         return weapon;
     }
+
+    public void displayStats() {
+        String outputString = String.format("Level: %1$8s\nHealth: %2$8s\nStamina: %3$7s\nMana: %4$10s\nStrength: %5$5s\nIntelligence: %6$s", level, health, stamina, mana, strength, intelligence);
+        System.out.println("\n" + outputString + "\n");
+    }
+
+    public int attack(Character target) {
+        int damage = 0;
+        if (weapon.getType() == "strength") {
+            damage = weapon.getPower() * strength;
+        } else {
+            damage = weapon.getPower() * intelligence;
+        }
+        return damage;
+    }
 }

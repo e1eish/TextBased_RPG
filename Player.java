@@ -18,4 +18,10 @@ public class Player extends Character {
     public String getName() {
         return name;
     }
+
+    public void displayStats() {
+        System.out.println("\n" + name);
+        System.out.println("-----------------");
+        super.displayStats();
+    }
 }
