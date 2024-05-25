@@ -1,4 +1,3 @@
-public class Weapon {
-    String name;
+public class Weapon extends Item {
     int attackPower;
 }
