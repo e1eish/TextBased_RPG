@@ -38,6 +38,10 @@ public class Player extends Character {
         System.out.println("\n" + outputString + "\n");
     }
 
+    public void gainGold(int amount) {
+        inventory.addGold(amount);
+    }
+
     public int attack() {
         int damage;
         if (weapon.getType() == "strength") {
@@ -64,7 +68,8 @@ public class Player extends Character {
 
     public void gainExp(Scanner scanner, int amount) {
         exp += amount;
-        if (exp >= 50) {
+        while (exp >= 50) {
+            displayStats();
             boolean isValid = false;
             int choice = 0;
             while (isValid == false) {

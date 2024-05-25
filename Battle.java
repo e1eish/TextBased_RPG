@@ -4,11 +4,13 @@ public class Battle {
     Player player;
     Enemy enemy;
     int experienceGain;
+    int goldReward;
 
-    public Battle(Player newPlayer, Enemy newEnemy, int experience) {
+    public Battle(Player newPlayer, Enemy newEnemy, int experience, int gold) {
         player = newPlayer;
         enemy = newEnemy;
         experienceGain = experience;
+        goldReward = gold;
     }
 
     private void playerDamagesEnemy() {
@@ -97,6 +99,8 @@ public class Battle {
                 } else {
                     if (runSuccess()) {
                         ranAway = true;
+                    } else {
+                        System.out.println("You couldn't escape!");
                     }
                 }
                 isPlayerTurn = false;
@@ -109,7 +113,11 @@ public class Battle {
             String message = String.format("You defeated %s!", enemy.getName());
             System.out.println(message);
             player.gainExp(in, experienceGain);
+            player.gainGold(goldReward);
             player.heal(1000);
+            return true;
+        } else if (ranAway){
+            System.out.println("You ran away.");
             return true;
         } else {
             System.out.println("You were defeated.");
