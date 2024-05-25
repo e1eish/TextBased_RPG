@@ -62,7 +62,7 @@ abstract class Character {
     }
 
     public int attack(Character target) {
-        int damage = 0;
+        int damage;
         if (weapon.getType() == "strength") {
             damage = weapon.getPower() * strength;
         } else {
