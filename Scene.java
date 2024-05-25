@@ -15,7 +15,6 @@ public class Scene {
             String output = String.format("%1$d: %2$s", i + 1, choices[i].description);
             System.out.println(output);
         }
-        //System.out.println("\n");
     }
 
     public int makeChoice(Scanner scanner) {
