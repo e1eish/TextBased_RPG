@@ -4,7 +4,7 @@ A simple text-based rpg game in the console. There are turn-based battles with a
 
 The purpose of this software is to learn Java and practice programming with opbject-oriented techniques.
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/7DfuX_QXe74)
 
 # Development Environment
 
