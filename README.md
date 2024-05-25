@@ -2,7 +2,7 @@
 
 A simple text-based rpg game in the console. There are turn-based battles with a simple leveling and stat based system.
 
-The purpose of this software is to learn Java and practice programming.
+The purpose of this software is to learn Java and practice programming with opbject-oriented techniques.
 
 [Software Demo Video](http://youtube.link.goes.here)
 
@@ -20,8 +20,7 @@ Java was used as the language.
 
 # Future Work
 
-{Things to fix, improve, and add.}
-
 - Make it so that a scanner does not need to be passed into every function or method that requires user input.
-- Item 2
-- Item 3
+- Add more interactivity, such as inventory management, checking stats on command, and npcs.
+- Deeper storyline.
+- Properly check user input to ensure it is valid and fix infinite loop bug.
