@@ -22,6 +22,6 @@ Java was used as the language.
 
 {Things to fix, improve, and add.}
 
-- Item 1
+- Make it so that a scanner does not need to be passed into every function or method that requires user input.
 - Item 2
 - Item 3

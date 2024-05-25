@@ -1,13 +1,13 @@
 abstract class Character {
     protected int level = 0;
     protected int vigor = 10;
-    protected int health = 10;
+    protected int health = 100;
     protected Weapon weapon;
 
     public Character(int inputLevel, int inputVigor) {
         level = inputLevel;
         vigor = inputVigor;
-        health = vigor;
+        health = vigor * 10;
     }
 
     public int getLevel() {
@@ -31,8 +31,8 @@ abstract class Character {
 
     public void heal(int heal_amount) {
         health += heal_amount;
-        if (health > vigor) {
-            health = vigor;
+        if (health > vigor * 10) {
+            health = vigor * 10;
         }
     }
 
